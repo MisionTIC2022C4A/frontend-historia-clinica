@@ -112,10 +112,6 @@ export default {
   align-items: center;
   flex-direction: column;
 }
-#BuscarPaciente .container {
-  margin-top:200px !important;
-}
-
 #BuscarPaciente h2 {
   font-size: 30px;
   color: #283747;

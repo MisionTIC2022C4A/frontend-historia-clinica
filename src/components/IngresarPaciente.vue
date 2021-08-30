@@ -1,22 +1,158 @@
 <template>
   <div id="IngresarPaciente">
-    <table>
-      <tr>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Origen</th>
-        <th>Destino</th>
-        <th>valor</th>
-      </tr>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">
+                        Ingresar paciente
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="card m-2">
+                        <h5 class="card-header">
+                            Datos personales
+                        </h5>
+                        <div class="card-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">
+                                        ID
+                                    </label>
+                                    <input type="id" class="form-control" id="exampleInputEmail1" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Tipo de documento</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>TI</option>
+                                        <option>CC</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">
+                                        Fecha de nacimiento
+                                    </label>
+                                    <input type="date" class="form-control" id="exampleInputEmail1" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Estado civil</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Soltero</option>
+                                        <option>Casado</option>
+                                        <option>Divorciado</option>
+                                        <option>Viudo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">
+                                        Ocupación
+                                    </label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">
+                                        Nombre completo
+                                    </label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Aseguradora</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Sura</option>
+                                        <option>NuevaEPS</option>
+                                        <option>Colsanitas</option>
+                                        <option>Cafesalud</option>
+                                    </select>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      Subsidiado
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      Contributivo
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card m-2">
+                        <h5 class="card-header">
+                            Residencia
+                        </h5>
+                        <div class="card-body">
+                            <form role="form">
+                                <div class="form-group">
 
-      <tr v-for="transacction in transacctionByIdUser" :key="transacction.id">
-        <td>{{ transacction.date.substring(0, 10) }}</td>
-        <td>{{ transacction.date.substring(11, 19) }}</td>
-        <td>{{ transacction.userIdOrigin }}</td>
-        <td>{{ transacction.userIdDestiny }}</td>
-        <td>${{ transacction.value }} COP</td>
-      </tr>
-    </table>
+                                    <label for="exampleInputEmail1">
+                                        Dirección
+                                    </label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" />
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword1">
+                                        Ciudad
+                                    </label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword1">
+                                        País
+                                    </label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card m-2">
+                        <h5 class="card-header">
+                            Datos de contacto
+                        </h5>
+                        <div class="card-body">
+                            <form role="form">
+                                <div class="form-group">
+
+                                    <label for="exampleInputEmail1">
+                                        Teléfono
+                                    </label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" />
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword1">
+                                        Correo
+                                    </label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="exampleInputPassword1">
+                                        Acompañante
+                                    </label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="button" class="btn btn-danger">Cancelar</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
