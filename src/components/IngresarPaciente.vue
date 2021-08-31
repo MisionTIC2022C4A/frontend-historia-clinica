@@ -24,7 +24,7 @@
                                             ID
                                         </label>
                                         <input 
-                                        type="text" 
+                                        type="text"
                                         class="form-control" 
                                         id="numeroIdentificacion" 
                                         v-model="patient.numeroIdentificacion"
@@ -235,24 +235,23 @@ export default {
   data: function () {
     return {
       patient: {
-        numeroIdentificacion: " ",
-        tipoIdentificacion: " ",
-        nombreCompleto: "  ",
-        fechaNacimiento: " ",
-        estadoCivil: " ",
-        ocupacion: " ",
-        direccion: " ",
-        ciudad: " ",
-        telefono: " ",
-        email: " ",
-        nombreAcompanante: " ",
-        aseguradora: " ",
-        vinculacion: " ",
-        fechaIngreso: "2021-08-31",
+        numeroIdentificacion: "",
+        tipoIdentificacion: "",
+        nombreCompleto: "",
+        fechaNacimiento: "",
+        estadoCivil: "",
+        ocupacion: "",
+        direccion: "",
+        ciudad: "",
+        telefono: "",
+        email: "",
+        nombreAcompanante: "",
+        aseguradora: "",
+        vinculacion: "",
+        fechaIngreso: this.formatoFechaActual(),
       },
     };
   },
-
    methods: {
  init: function () {
       this.$router.push({
@@ -295,14 +294,11 @@ export default {
             alert("Se presentó un error al ingresar el paciente");
         });
     },
-
     formatoFechaActual(){
         var date = new Date();
-        let formatted_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        let formatted_date =date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
         return formatted_date;
-            
         },
-   
   },
 };
 
@@ -310,42 +306,4 @@ export default {
 
 
 <style>
-#IngresarPaciente {
-  width: 100%;
-  height: 120%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-#IngresarPaciente table {
-  width: 50%;
-  border-collapse: collapse;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-}
-
-#IngresarPaciente table td,
-#IngresarPaciente table th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#IngresarPaciente table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#IngresarPaciente table tr:hover {
-  background-color: #ddd;
-}
-
-#IngresarPaciente table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: crimson;
-  color: white;
-}
 </style>
