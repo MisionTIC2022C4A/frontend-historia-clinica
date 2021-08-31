@@ -10,146 +10,216 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5">
-                    <div class="card m-2">
-                        <h5 class="card-header">
-                            Datos personales
-                        </h5>
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">
-                                        ID
-                                    </label>
-                                    <input type="id" class="form-control" id="exampleInputEmail1" />
+                <form role="form" v-on:submit.prevent="createPatient">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="card m-2">
+                                <h5 class="card-header">
+                                    Datos personales
+                                </h5>
+                                <div class="card-body">
+                            
+                                    <div class="form-group">
+                                        <label for="numeroIdentificacion">
+                                            ID
+                                        </label>
+                                        <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="numeroIdentificacion" 
+                                        v-model="patient.numeroIdentificacion"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tipoIdentificacion">Tipo de documento</label>
+                                        <select 
+                                        class="form-control" 
+                                        id="tipoIdentificacion"
+                                        v-model="patient.tipoIdentificacion"
+                                        >
+                                            <option>TI</option>
+                                            <option>CC</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fechaNacimiento">
+                                            Fecha de nacimiento
+                                        </label>
+                                        <input 
+                                        type="date" 
+                                        class="form-control" 
+                                        id="fechaNacimiento" 
+                                        v-model="patient.fechaNacimiento"
+                                        />
+                                    
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="estadoCivil">Estado civil</label>
+                                        <select class="form-control" 
+                                        id="estadoCivil"
+                                        v-model="patient.estadoCivil"
+                                        >
+                                            <option>Soltero</option>
+                                            <option>Casado</option>
+                                            <option>Divorciado</option>
+                                            <option>Viudo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ocupacion">
+                                            Ocupación
+                                        </label>
+                                        <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="ocupacion" 
+                                        v-model="patient.ocupacion"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombreCompleto">
+                                            Nombre completo
+                                        </label>
+                                        <input 
+                                        type="text" 
+                                        class="form-control"
+                                        id="nombreCompleto" 
+                                        v-model="patient.nombreCompleto"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="aseguradora">Aseguradora</label>
+                                        <select 
+                                        class="form-control" 
+                                        id="aseguradora"
+                                        v-model="patient.aseguradora"
+                                        >
+                                            <option>Sura</option>
+                                            <option>NuevaEPS</option>
+                                            <option>Colsanitas</option>
+                                            <option>Cafesalud</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-check">
+                                        <input 
+                                        class="form-check-input" 
+                                        type="radio" 
+                                        name="exampleRadios" 
+                                        id="exampleRadios1" 
+                                        value="subsidiado" 
+                                        v-model="patient.vinculacion"
+                                        
+                                        >
+                                        <label class="form-check-label" for="exampleRadios1">
+                                        Subsidiado
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input 
+                                        class="form-check-input" 
+                                        type="radio" 
+                                        name="exampleRadios" 
+                                        id="exampleRadios2" 
+                                        value="contributivo"
+                                        v-model="patient.vinculacion"
+                                        >
+                                        <label class="form-check-label" for="exampleRadios2">
+                                        Contributivo
+                                        </label>
+                                    </div>
+                        
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Tipo de documento</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>TI</option>
-                                        <option>CC</option>
-                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card m-2">
+                                <h5 class="card-header">
+                                    Residencia
+                                </h5>
+                                <div class="card-body">
+                                    <form role="form">
+                                        <div class="form-group">
+
+                                            <label for="direccion">
+                                                Dirección
+                                            </label>
+                                            <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="direccion"
+                                            v-model="patient.direccion" 
+                                            />
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="ciudad">
+                                                Ciudad
+                                            </label>
+                                            <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="ciudad" 
+                                            v-model="patient.ciudad"
+                                            />
+                                        </div>
+                                        
+                                    </form>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">
-                                        Fecha de nacimiento
-                                    </label>
-                                    <input type="date" class="form-control" id="exampleInputEmail1" />
+                            </div>
+                            <div class="card m-2">
+                                <h5 class="card-header">
+                                    Datos de contacto
+                                </h5>
+                                <div class="card-body">
+                                
+                                        <div class="form-group">
+
+                                            <label for="telefono">
+                                                Teléfono
+                                            </label>
+                                            <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="telefono" 
+                                            v-model="patient.telefono"
+                                            />
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="email">
+                                                Correo
+                                            </label>
+                                            <input 
+                                            type="email" 
+                                            class="form-control" 
+                                            id="email" 
+                                            v-model="patient.email"
+                                            />
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="acompañante">
+                                                Acompañante
+                                            </label>
+                                            <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="acompañante" 
+                                            v-model="patient.nombreAcompanante"
+                                            />
+                                        </div>
+                                    
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Estado civil</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Soltero</option>
-                                        <option>Casado</option>
-                                        <option>Divorciado</option>
-                                        <option>Viudo</option>
-                                    </select>
+                            </div>
+                            <div class="row m-2">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button type="button" class="btn btn-danger" v-on:click="init">Cancelar</button>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">
-                                        Ocupación
-                                    </label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">
-                                        Nombre completo
-                                    </label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Aseguradora</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Sura</option>
-                                        <option>NuevaEPS</option>
-                                        <option>Colsanitas</option>
-                                        <option>Cafesalud</option>
-                                    </select>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                      Subsidiado
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                      Contributivo
-                                    </label>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="card m-2">
-                        <h5 class="card-header">
-                            Residencia
-                        </h5>
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-
-                                    <label for="exampleInputEmail1">
-                                        Dirección
-                                    </label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" />
-                                </div>
-                                <div class="form-group">
-
-                                    <label for="exampleInputPassword1">
-                                        Ciudad
-                                    </label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                                </div>
-                                <div class="form-group">
-
-                                    <label for="exampleInputPassword1">
-                                        País
-                                    </label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card m-2">
-                        <h5 class="card-header">
-                            Datos de contacto
-                        </h5>
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-
-                                    <label for="exampleInputEmail1">
-                                        Teléfono
-                                    </label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" />
-                                </div>
-                                <div class="form-group">
-
-                                    <label for="exampleInputPassword1">
-                                        Correo
-                                    </label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                                </div>
-                                <div class="form-group">
-
-                                    <label for="exampleInputPassword1">
-                                        Acompañante
-                                    </label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row m-2">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            <button type="button" class="btn btn-danger">Cancelar</button>
-                          </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -164,36 +234,78 @@ export default {
 
   data: function () {
     return {
-      username: "none",
-      transacctionByIdUser: [],
+      patient: {
+        numeroIdentificacion: " ",
+        tipoIdentificacion: " ",
+        nombreCompleto: "  ",
+        fechaNacimiento: " ",
+        estadoCivil: " ",
+        ocupacion: " ",
+        direccion: " ",
+        ciudad: " ",
+        telefono: " ",
+        email: " ",
+        nombreAcompanante: " ",
+        aseguradora: " ",
+        vinculacion: " ",
+        fechaIngreso: "2021-08-31",
+      },
     };
   },
 
-  created: function () {
-    this.username = this.$route.params.username;
-  },
-
-  apollo: {
-    transacctionByIdUser: {
-      query: gql`
-        query ($transacctionByIdUserUserId: String!) {
-          transacctionByIdUser(userId: $transacctionByIdUserUserId) {
-            date
-            id
-            userIdDestiny
-            userIdOrigin
-            value
-          }
-        }
-      `,
-      variables() {
-        return {
-          transacctionByIdUserUserId: localStorage.getItem("user_id"),
-        };
-      },
+   methods: {
+ init: function () {
+      this.$router.push({
+        name: "root",
+      });
     },
+    createPatient: async function () {
+        debugger
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation ($createPatientPatient: PatientInput!) {
+                createPatient(patient: $createPatientPatient) {
+                    numeroIdentificacion
+                    tipoIdentificacion
+                    aseguradora
+                    vinculacion
+                    fechaIngreso
+                    nombreAcompanante
+                    email
+                    telefono
+                    ciudad
+                    direccion
+                    nombreCompleto
+                    fechaNacimiento
+                    estadoCivil
+                    ocupacion
+                 }
+            }
+        `,
+          
+       variables: {
+            createPatientPatient: this.patient,
+          },
+        })
+        .then((result) => {
+          alert("El paciente fue ingresado correctamente")
+        })
+        .catch((error) => {
+            alert("Se presentó un error al ingresar el paciente");
+        });
+    },
+
+    formatoFechaActual(){
+        var date = new Date();
+        let formatted_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        return formatted_date;
+            
+        },
+   
   },
 };
+
 </script>
 
 

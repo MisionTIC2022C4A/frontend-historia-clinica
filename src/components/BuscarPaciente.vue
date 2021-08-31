@@ -1,15 +1,10 @@
 <template>
   <div id="BuscarPaciente mt-5">
-    <div class="container">
-      <form class="row g-3" v-on:submit.prevent="buscarPaciente">
-        <!-- <div class="col-md-6">
-    <label for="inputNombre" class="form-label">Nombres</label>
-    <input type="nombres" class="form-control" id="inputNombre">
-  </div>
-  <div class="col-md-6">
-    <label for="inputApellidos" class="form-label">Apellidos</label>
-    <input type="apellidos" class="form-control" id="inputApellidos">
-  </div>-->
+    <div class="card m-5">
+            <div class="container-fluid m-3">
+    
+      <form class="row g-3 m-3" v-on:submit.prevent="buscarPaciente">
+        
 
         <div class="col-md-3">
           <label for="inputState" class="form-label">Tipo</label>
@@ -33,16 +28,24 @@
         </div>
 
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Buscar</button>
+          <button type="submit" class="btn btn-primary m-3">Buscar</button>
         </div>
       </form>
+      <div class="row">
 
-      <div class="col-12" v-if="isPatience">
-        <h2>POR FAVOR INGRESE UN NUEVO PACIENTE</h2>
-        <button type="button" class="btn btn-primary">Ingresar paciente</button>
+      <div class="col-12 mt-5" v-if="isPatient">
+        <h4 class="text-center">El paciente identificado con <i>{{paramsSearch.tipoIdentificacion}} </i>.
+        <i> {{paramsSearch.numeroIdentificacion}} </i> no se encuentra registrado en el sistema. 
+        </h4>
+
+        <h4 class="text-center">Si desea ingresarlo, haga clic en el siguiente botón:</h4>
+        
+        <div class="text-center">
+        <button type="button" class="btn btn-primary m-4" v-on:click="ingresarPaciente">Ingresar paciente</button>
+        </div>
       </div>
-
-      <table class="table" v-if="isTable">
+      </div>
+      <table class="table mr-5" v-if="isTable">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -54,7 +57,7 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>{{ patience.nombreCompleto }}</td>
+            <td>{{ patient.nombreCompleto }}</td>
             <td>
               <button
                 type="button"
@@ -72,6 +75,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </template>
@@ -85,13 +89,13 @@ export default {
   data: function () {
     return {
       isTable: false,
-      isPatience: false,
+      isPatient: false,
 
       paramsSearch: {
         tipoIdentificacion: "",
         numeroIdentificacion: "",
       },
-      patience: {
+      patient: {
         ciudad: " ",
         direccion: " ",
         estadoCivil: " ",
@@ -125,12 +129,15 @@ export default {
                 numeroIdentificacion
                 tipoIdentificacion
                 nombreCompleto
-                fechaNacimiento
                 estadoCivil
                 ocupacion
                 direccion
                 ciudad
                 telefono
+                email
+                aseguradora
+                vinculacion
+                fechaNacimiento
               }
             }
           `,
@@ -141,21 +148,27 @@ export default {
           },
         })
         .then((result) => {
-          this.patience = result.data.getPatient;
+          this.patient = result.data.getPatient;
           this.isTable = true;
-          this.isPatience = false;
+          this.isPatient = false;
           console.log(result);
         })
         .catch((error) => {
-          this.isPatience = true;
+          this.isPatient = true;
           this.isTable = false;
         });
     },
     verPaciente: function () {
       this.$router.push({
         name: "mostrarPaciente",
-        /*props:{patient:this.patience},*/
-        params: { patient: JSON.stringify(this.patience) },
+        /*props:{patient:this.patient},*/
+        params: { patient: JSON.stringify(this.patient) },
+      });
+    },
+
+    ingresarPaciente: function () {
+      this.$router.push({
+        name: "ingresarPaciente",
       });
     },
   },
@@ -182,4 +195,12 @@ export default {
   color: crimson;
   font-weight: bold;
 }
+
+#BuscarPaciente button  {
+  height:20px; 
+  width:100px; 
+  margin: -20px -50px; 
+  position:relative; 
+  top:50%; 
+  left:50%; }
 </style>

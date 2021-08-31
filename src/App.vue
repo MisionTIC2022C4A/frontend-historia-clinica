@@ -19,7 +19,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="#"
             v-on:click="init"
-              >Inicio <span class="sr-only">(current)</span></a
+              >Inicio <span class="sr-only"></span></a
             >
           </li>
           <li class="nav-item">
@@ -55,6 +55,12 @@ export default {
   created: function () {},
 
   methods: {
+
+    init: function () {
+      this.$router.push({
+        name: "root",
+      });
+    },
     buscarPaciente: function () {
       this.$router.push({
         name: "buscarPaciente",
@@ -92,6 +98,10 @@ body {
   align-items: center;
 }
 
+.header a {
+  width: 20%;
+  text-align: center;
+}
 .header h1 {
   width: 20%;
   text-align: center;
@@ -125,13 +135,14 @@ body {
 
 .main-component {
   height: 75vh;
-  margin: 0%;
+  margin: 1%;
   padding: 0%;
 
   background: #fdfefe;
 }
 
 .footer {
+  
   position: fixed;
   left: 0px;
   bottom: 0px;
@@ -143,7 +154,7 @@ body {
 }
 
 .footer h2 {
-  margin: 0px;
+  
   width: 100%;
   height: 100%;
 
