@@ -105,6 +105,7 @@ export default {
         ocupacion: " ",
         telefono: " ",
         tipoIdentificacion: " ",
+        nombreAcompanante: " ",
       },
     };
   },
@@ -138,6 +139,7 @@ export default {
                 aseguradora
                 vinculacion
                 fechaNacimiento
+                nombreAcompanante
               }
             }
           `,

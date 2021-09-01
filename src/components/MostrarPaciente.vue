@@ -65,6 +65,23 @@
                             </h5>
 
                           </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                              <div class="btn-group" role="group" aria-label="Basic example">
+                                <div class="col-md-6 m-2">
+                                    <button type="submit" class="btn btn-primary" v-on:click="crearAtencion">Nueva Atención</button>
+                                </div>
+                                <div class="col-md-6 m-2">
+                                    <button type="button" class="btn btn-danger" v-on:click="init">Cancelar</button>
+                                  </div>
+                                </div>
+                            </div>
+                                
+                          </div>
                           
                         </div>
                         
@@ -87,14 +104,12 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "BuscarPaciente",
+  name: "MostrarPaciente",
   props: {},
 
   data: function() {
     return {
-      isTable: false,
-      isPatient: false,
-
+      
       paramsSearch: {
         tipoIdentificacion: "",
         numeroIdentificacion: "",
@@ -112,12 +127,14 @@ export default {
         ciudad: " ",
         telefono: " ",
         email: " ",
+        nombreAcompanante: " ",
+
         
       },
       
     };
   },
-
+  
   created: function() {
   
     /*guarda la información que viene por la url, parámetro "patient" 
@@ -138,7 +155,13 @@ export default {
         edad--
       }
       return edad
-}
+},
+crearAtencion: function () {
+      this.$router.push({
+        name: "crearAtencion", 
+        params: {patient:JSON.stringify(this.patient)}
+      });
+    },
   },
 };
 
