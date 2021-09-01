@@ -4,9 +4,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="text-center">
+                    <h2 class="text-center">
                         Ingresar paciente
-                    </h1>
+                    </h2>
                 </div>
             </div>
             <div class="row">
@@ -213,8 +213,12 @@
                             </div>
                             <div class="row m-2">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                    <button type="button" class="btn btn-danger" v-on:click="init">Cancelar</button>
+                                    <div class="row m-2">
+                                      <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                    <div class="row m-2">
+                                      <button type="button" class="btn btn-danger" v-on:click="init">Cancelar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

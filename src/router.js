@@ -4,6 +4,7 @@ import App from './App.vue'
 import BuscarPaciente from './components/BuscarPaciente'
 import IngresarPaciente from './components/IngresarPaciente'
 import MostrarPaciente from './components/MostrarPaciente'
+import CrearAtencion from './components/CrearAtencion'
 import Home from './components/Home'
 
 
@@ -27,6 +28,12 @@ const routes = [{
         name: "mostrarPaciente",
         component: MostrarPaciente,
         props: true
+    },
+    {
+        path: '/crearAtencion/:patient',
+        name: "crearAtencion",
+        component: CrearAtencion,
+      
     },
 ]
 
