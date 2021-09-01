@@ -162,7 +162,7 @@ export default {
     },
     verPaciente: function () {
       this.$router.push({
-        name: "mostrarPaciente",
+        name: "crearAtencion",
         /*props:{patient:this.patient},*/
         params: { patient: JSON.stringify(this.patient) },
       });
