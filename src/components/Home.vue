@@ -2,14 +2,14 @@
   <div class="container-fluid">
 	<div class="row m-10">
 		<div class="col-md-12">
-			<div class="row">
+			<div class="row justify-content-center">
 				<div class="col-md-6">
           <div class="text-center">
 					<img class="imagen" alt="Bootstrap Image Preview" src="../assets/pexels-pixabay-40568.jpg" />
           </div>
 				</div>
-				<div class="col-md-6">
-					<h1 class="text-center">
+				<div class="col-md-6 align-self-center">
+					<h1 class="text-center display-1">
 						¡Bienvenido a nuestro sistema de historias clínicas!
 					</h1>
 				</div>
