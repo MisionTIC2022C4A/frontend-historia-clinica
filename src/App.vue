@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#" v-on:click="init">Inicio
+          <a class="nav-link" href="#" v-on:click="init">Inicio
           </a>
         </li>
         <li class="nav-item">
@@ -26,7 +26,7 @@
 
 
 
-    <div class="main-component mt-5">
+    <div class="main-component mt-4">
       <router-view v-on:log-in="logIn"></router-view>
     </div>
 
