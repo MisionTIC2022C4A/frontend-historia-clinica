@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#" v-on:click="init">Historia Clínica</a>
       <button
         class="navbar-toggler"
@@ -40,10 +40,10 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center ">
       <!-- Copyright -->
       <div
-        class="text-center p-4"
+        class="text-center p-4" id="text-footer"
         style="background-color: rgba(0, 0, 0, 0.05)"
       >
         © 2021 Copyright: Equipo 2 MisiónTIC 2022 C4A
@@ -96,11 +96,38 @@ footer {
   left: 0px;
   right: 0px;
   margin-bottom: 0px;
+  background-color: #78c2ad
+}
+
+#text-footer {
+  color: #ebeced;
+  
 }
 body {
     margin-bottom:72px;
 }
 .navbar-brand{
   margin-left: 1.5rem !important;
+  font-weight: bold;
+  
 }
+.nav-link {
+  color:#ebeced
+}
+
+.navbar {
+  background-color: #78c2ad;
+
+}
+
+a{
+  color: #ebeced;
+  
+}
+
+h2 {
+  color: #3e6c76;
+  
+}
+
 </style>
