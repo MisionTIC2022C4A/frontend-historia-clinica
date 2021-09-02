@@ -263,7 +263,6 @@ export default {
       });
     },
     createPatient: async function () {
-        debugger
       await this.$apollo
         .mutate({
           mutation: gql`
